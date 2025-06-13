@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SATYA SAI BABU Assessment </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f6f6;
+            margin: 0;
+            padding: 0 0 40px 0;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background: #222;
+            padding: 10px 20px;
+        }
+        .navbar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .brand {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 30px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .nav-links a:hover {
+            background: #4caf50;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 30px 30px 40px 30px;
+        }
+        h1, h2 {
+            color: #222;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #f2f2f2;
+        }
+        .alpha-list {
+            list-style-type: lower-alpha;
+        }
+        .square-list {
+            list-style-type: square;
+        }
+       
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .card-price {
+            font-size: 2.2em;
+            color: #4caf50;
+            margin-bottom: 18px;
+        }
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+            color: #555;
+        }
+        .card-features li {
+            margin-bottom: 8px;
+        }
+        .card-btn {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 28px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .card-btn:hover {
+            background: #388e3c;
+        }
+        @media (max-width: 900px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .move-box-container {
+            width: 100%;
+            height: 80px;
+            position: relative;
+            margin: 40px 0;
+        }
+        .move-box {
+            width: 60px;
+            height: 60px;
+            background: #2196f3;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            border-radius: 8px;
+            animation: moveRight 5s linear infinite;
+        }
+        @keyframes moveRight {
+            0% { left: 0; }
+            100% { left: calc(100% - 60px); }
+        }
+        .transform-box {
+            width: 100px;
+            height: 100px;
+            background: #ff9800;
+            margin: 30px 0;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #fff;
+        }
+        .transform-box:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+        .color-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 30px 0;
+            animation: colorChange 8s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #fff;
+        }
+        @keyframes colorChange {
+            0%   { background: red; }
+            25%  { background: yellow; color: #333;}
+            50%  { background: blue; }
+            75%  { background: green; }
+            100% { background: red; }
+        }
+        form label {
+            display: inline-block;
+            min-width: 110px;
+        }
+        form input[type="text"],
+        form input[type="number"],
+        form select,
+        form textarea {
+            margin-bottom: 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #bbb;
+        }
+        form textarea {
+            resize: vertical;
+        }
+        form button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 24px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        form button:hover {
+            background: #388e3c;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        .login-form {
+            max-width: 350px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 24px 20px 18px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }        
+        .login-form input[type="email"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 14px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .login-form .checkbox-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .login-form .checkbox-row input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .login-form button {
+            width: 100%;
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 0;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .login-form button:hover {
+            background: #388e3c;
+            .nth-list {
+            list-style: decimal;
+            padding-left: 30px;
+        }
+        .nth-list li {
+            padding: 8px 0;
+            font-size: 1.1em;
+        }
+        .nth-list li:nth-child(3n) {
+            background: #e3f2fd;
+            color: #1976d2;
+            font-weight: bold;
+            border-radius: 6px;
+            padding-left: 10px;
+        }
+         .storage-form label {
+            min-width: 120px;
+            display: inline-block;
+        }
+        .storage-form input[type="text"] {
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #bbb;
+            margin-bottom: 10px;
+        }
+        .storage-form button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 18px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-left: 8px;
+            transition: background 0.2s;
+        }
+        .storage-form button:hover {
+            background: #388e3c;
+        }
+        
+.
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="sai.jpg" alt="Person Image">
+        <span class="brand">MyBrand</span>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <main>
+        <h1>SATYA SAI BABU ASSESMENT</h1>
+
+
+        <section>
+            <h2>2. About SAI</h2>
+            <p>
+               Sai is an Student on FITA Academy 
+            </p>
+        </section>
+
+        <section>
+            <h2>3. Book Table</h2>
+            <table>
+                <tr>
+                    <th colspan="4">Book List</th>
+                </tr>
+                <tr>
+                    <th>Tilte</th>
+                    <th>Author</th>
+                    <th>Publication Date</th>
+                    <th>Number of pages</th>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td rowspan="2">satya</td>
+                    <td>1925</td>
+                    <td>218</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>1934</td>
+                    <td>317</td>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>satya</td>
+                    <td>1949</td>
+                    <td>328</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>satya</td>
+                    <td>1960</td>
+                    <td>281</td>
+                </tr>
+                <tr>
+                    <td>Java Script</td>
+                    <td>satya</td>
+                    <td>1813</td>
+                    <td>279</td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <h2>4. Favorite Food Survey</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age"><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone"><br><br>
+            
+                
+                Gender:
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female">Female</label><br><br>
+                
+                <label for="food">Favorite Food:</label>
+                <select id="food" name="food">
+                    <option>Pizza</option>
+                    <option>Chinese</option>
+                    <option>Indian</option>
+                    <option>Burger</option>
+                    <option>Mexican</option>
+                </select><br><br>
+                
+                <input type="checkbox" id="cook" name="cook">
+                <label for="cook">Do you like to cook?</label><br><br>
+                
+                <label for="comments">Additional Comments:</label><br>
+                <textarea id="comments" name="comments" rows="3" cols="30"></textarea><br><br>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>5. Cities and Beverages</h2>
+            <ol class="alpha-list">
+                <li>Benguluru</li>
+                <li>Chennai</li>
+                <li>Hyderabad</li>
+                <li>Vizag</li>
+                <li>Pune</li>
+            </ol>
+            <ul class="square-list">
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Orange Juice</li>
+                <li>Milk</li>
+                <li>Soft Drink</li>
+                <li>Water</li>
+                <li>Beer</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 style="text-align:center; margin-bottom:0;">6. Pricing Plans</h2>
+            <div style="text-align:center;">
+                <span style="display:inline-block; font-size:2em; font-weight:700; color:#888; letter-spacing:2px; margin-top:10px;">
+                    START EATING HEALTHY TODAY
+                </span>
+                <div style="height:4px; width:320px; background:#e74c3c; margin:8px auto 24px auto; border-radius:2px;"></div>
+            </div>
+            <div class="pricing-container">
+                <div class="card">
+                    <div style="font-weight:700; color:#666; font-size:1.2em; letter-spacing:1px; margin-bottom:10px;">PREMIUM</div>
+                    <div style="color:#e74c3c; font-size:2.5em; font-weight:700; margin-bottom:0;">
+                        $399
+                        <span style="font-size:0.5em; color:#888; font-weight:400;">/month</span>
+                    </div>
+                    <div style="color:#888; font-size:1em; margin-bottom:10px;">
+                        That's only 13.30$ per meal
+                    </div>
+                    <hr style="width:100%; border:0; border-top:1px solid #eee; margin:10px 0;">
+                    <ul class="card-features" style="width:100%; color:#444; font-size:1em; margin-bottom:18px;">
+                        <li>1 meal every day</li>
+                        <li>Order 24/7</li>
+                        <li>Access to newest creations</li>
+                        <li>Free delivery</li>
+                    </ul>
+                    <hr style="width:100%; border:0; border-top:1px solid #eee; margin:10px 0 18px 0;">
+                    <button class="card-btn" style="background:#e74c3c;">I'm hungry</button>
+                </div>
+                <div class="card">
+                    <div style="font-weight:700; color:#666; font-size:1.2em; letter-spacing:1px; margin-bottom:10px;">PREMIUM</div>
+                    <div style="color:#e74c3c; font-size:2.5em; font-weight:700; margin-bottom:0;">
+                        $399
+                        <span style="font-size:0.5em; color:#888; font-weight:400;">/month</span>
+                    </div>
+                    <div style="color:#888; font-size:1em; margin-bottom:10px;">
+                        That's only 13.30$ per meal
+                    </div>
+                    <hr style="width:100%; border:0; border-top:1px solid #eee; margin:10px 0;">
+                    <ul class="card-features" style="width:100%; color:#444; font-size:1em; margin-bottom:18px;">
+                        <li>1 meal every day</li>
+                        <li>Order 24/7</li>
+                        <li>Access to newest creations</li>
+                        <li>Free delivery</li>
+                    </ul>
+                    <hr style="width:100%; border:0; border-top:1px solid #eee; margin:10px 0 18px 0;">
+                    <button class="card-btn" style="background:#e74c3c;">I'm hungry</button>
+                </div>
+                <div class="card">
+                    <div style="font-weight:700; color:#666; font-size:1.2em; letter-spacing:1px; margin-bottom:10px;">PREMIUM</div>
+                    <div style="color:#e74c3c; font-size:2.5em; font-weight:700; margin-bottom:0;">
+                        $399
+                        <span style="font-size:0.5em; color:#888; font-weight:400;">/month</span>
+                    </div>
+                    <div style="color:#888; font-size:1em; margin-bottom:10px;">
+                        That's only 13.30$ per meal
+                    </div>
+                    <hr style="width:100%; border:0; border-top:1px solid #eee; margin:10px 0;">
+                    <ul class="card-features" style="width:100%; color:#444; font-size:1em; margin-bottom:18px;">
+                        <li>1 meal every day</li>
+                        <li>Order 24/7</li>
+                        <li>Access to newest creations</li>
+                        <li>Free delivery</li>
+                    </ul>
+                    <hr style="width:100%; border:0; border-top:1px solid #eee; margin:10px 0 18px 0;">
+                    <button class="card-btn" style="background:#e74c3c;">I'm hungry</button>
+                </div>
+            </div>
+        </section>
+              
+        <section>
+            <h2>7. Moving Box Animation</h2>
+            <div class="move-box-container">
+                <div class="move-box"></div>
+            </div>
+        </section>
+        <section>
+            <h2>8. Transform on Hover</h2>
+            <div class="transform-box">Touch me</div>
+        </section>
+
+        <section>
+            <h2>9. Animated Color-Changing Circle</h2>
+            <div class="color-circle">Colorful Circle</div>
+        </section>
+        <section>
+            <h2>10. Audio and Video Player</h2>
+            <audio controls>
+                <source src="audio.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <br><br>
+            <video src="horse.mp4" controls poster="poster.jpg" autoplay muted width="400">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+        <section>
+            
+        <h2>12. Login Form with Validation</h2>
+        <form class="login-form" autocomplete="on">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required minlength="6">
+            <div class="checkbox-row">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember" style="margin:0;">Remember Me</label>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+  <section>
+        <h2>14. nth-child() Styling</h2>
+        <ul class="nth-list">
+            <li>Apple</li>
+            <li>Banana</li>
+            <li>Cherry</li>
+            <li>Date</li>
+            <li>Elderberry</li>
+            <li>Fig</li>
+            <li>Grape</li>
+            <li>Honeydew</li>
+            <li>Indian Fig</li>
+        </ul>
+    </section>
+    <section>
+        <h2>15. Local & Session Storage</h2>
+        <form class="storage-form" autocomplete="off">
+            <label for="localName">Name (Local Storage):</label>
+            <input type="text" id="localName" name="localName">
+            <button type="button" onclick="saveLocal()">Save to Local</button>
+            <br><br>
+            <label for="sessionColor">Favorite Color (Session Storage):</label>
+            <input type="text" id="sessionColor" name="sessionColor">
+            <button type="button" onclick="saveSession()">Save to Session</button>
+        </form>
+    </section>
+
+
+        
+        
+    </main>
+</body>
+</html>
